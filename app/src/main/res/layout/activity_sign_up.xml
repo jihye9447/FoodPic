@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SingUpActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:contentInsetStart="0dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.35"
+                android:scaleY="0.35"
+                android:id="@+id/back_btn"
+                android:src="@drawable/leftarrow"/>
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/gold"
+                android:textSize="18dp"
+                android:text="회원가입"
+                android:fontFamily="@font/myfont"
+                />
+            <TextView
+                android:id="@+id/button"
+                android:layout_toRightOf="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/darkgreen"
+                android:text="다음"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="573dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/toolbar2"
+            tools:layout_editor_absoluteX="1dp" />
+
+
+</RelativeLayout>

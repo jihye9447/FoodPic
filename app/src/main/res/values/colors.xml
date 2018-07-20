@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#265A0F</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="gold">#E6C142</color>
+    <color name="darkgreen">#265A0F</color>
+    <color name="calendarback">#21222D</color>
+    <color name="dark_gray">#555</color>
+    <color name="light_gray">#F2F2F2</color>
+</resources>

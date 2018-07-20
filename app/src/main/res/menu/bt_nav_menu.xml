@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/analystic"
+    android:icon="@drawable/analytics"
+    android:title="AnalyTics"/>
+    <item android:id="@+id/calendar"
+        android:icon="@drawable/date"
+        android:title="Calendar"/>
+    <item android:id="@+id/alarm"
+        android:icon="@drawable/alarm"
+        android:title="Alarm"/>
+</menu>

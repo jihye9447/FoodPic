@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/date_txt"
+                    android:fontFamily="@font/myfont"
+                    android:textSize="16dp"
+                    />
+
+                <com.github.sundeepk.compactcalendarview.CompactCalendarView
+                    xmlns:calendar="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/compactcalendar_view"
+                    android:layout_width="match_parent"
+                    android:layout_margin="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="300dp"
+                    calendar:compactCalendarTargetHeight="300dp"
+                    calendar:compactCalendarTextSize="13dp"
+                    calendar:compactCalendarBackgroundColor="@android:color/white"
+                    calendar:compactCalendarTextColor="#666"
+                    calendar:compactCalendarCurrentDayTextColor="@android:color/white"
+                    calendar:compactCalendarCurrentSelectedDayTextColor="@android:color/white"
+                    calendar:compactCalendarCurrentSelectedDayBackgroundColor="@color/gold"
+                    calendar:compactCalendarCurrentDayBackgroundColor="@color/darkgreen"
+                    calendar:compactCalendarMultiEventIndicatorColor="#333"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/bottom_sheet"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            app:behavior_peekHeight="60dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/topshadow"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Report"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="40dp"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/myfont"
+                            android:textColor="@android:color/black" />
+                </RelativeLayout>
+        </LinearLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@android:color/white"
+            android:src="@drawable/camera"
+            app:useCompatPadding="true"
+            app:layout_anchor="@+id/bottom_sheet"
+            app:layout_anchorGravity="end"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#eee"
+            android:layout_gravity="bottom"/>
+
+
+</android.support.design.widget.CoordinatorLayout>
