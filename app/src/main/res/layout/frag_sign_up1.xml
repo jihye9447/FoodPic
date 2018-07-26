@@ -57,15 +57,14 @@
             android:textColor="@color/dark_gray"
             android:textSize="15dp" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/check"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:orientation="horizontal">
             <EditText
                 android:id="@+id/check_pw"
-                android:layout_width="0dp"
-                android:layout_weight="4"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:textColor="@color/dark_gray"
@@ -73,13 +72,13 @@
                 android:textSize="15dp" />
 
             <ImageView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
                 android:id="@+id/view_hide"
                 android:scaleY="0.6"
                 android:scaleX="0.6"/>
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

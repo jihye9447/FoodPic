@@ -35,7 +35,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="9"
                 android:gravity="center_vertical"
-                android:textColor="@color/dark_gray" />
+                android:textColor="@color/dark_gray"
+                android:inputType="number|textNoSuggestions"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -119,7 +120,8 @@
                 android:layout_weight="9"
                 android:gravity="center_vertical"
                 android:textColor="@color/dark_gray"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:inputType="number|textNoSuggestions"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -151,7 +153,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="9"
                 android:gravity="center_vertical"
-                android:textColor="@color/dark_gray" />
+                android:textColor="@color/dark_gray"
+                android:inputType="number|textNoSuggestions"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -209,6 +212,9 @@
                     android:textSize="15dp" />
 
         </RadioGroup>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
 
     </LinearLayout>
     </ScrollView>
