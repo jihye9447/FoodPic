@@ -1,8 +1,11 @@
 package com.example.sinjihye.foodpic.SignUpPackage;
 
-public class SignUpPresenter implements SignUpTask.PresenterBridge{
+import com.example.sinjihye.foodpic.PojoPackage.UserData;
+
+public class SignUpPresenter implements SignUpTask.PresenterBridge, SignUpModel.OnCompleteListener{
 
     SignUpTask.ViewBridge viewBridge;
+    SignUpModel signUpModel = new SignUpModel(this);
 
     public SignUpPresenter(SignUpTask.ViewBridge viewBridge) {
         this.viewBridge = viewBridge;
@@ -10,17 +13,18 @@ public class SignUpPresenter implements SignUpTask.PresenterBridge{
     }
 
     @Override
-    public void login() {
-
+    public void login(UserData userData) {
+        signUpModel.login(userData);
     }
 
-    @Override
-    public void uploadUserData() {
-
-    }
 
     @Override
     public void start() {
 
+    }
+
+    @Override
+    public void onComplete(boolean isSuccess) {
+        viewBridge.complete(isSuccess);
     }
 }

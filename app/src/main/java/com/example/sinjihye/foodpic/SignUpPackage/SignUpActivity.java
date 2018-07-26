@@ -1,5 +1,6 @@
 package com.example.sinjihye.foodpic.SignUpPackage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.sinjihye.foodpic.FragAdapter;
 import com.example.sinjihye.foodpic.ListenerPackage.OnUserDataListener;
+import com.example.sinjihye.foodpic.MainActivity;
 import com.example.sinjihye.foodpic.PojoPackage.UserData;
 import com.example.sinjihye.foodpic.R;
 
@@ -24,6 +26,8 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
     SignUp1Fragment signUp1Fragment = new SignUp1Fragment();
     SignUp2Fragment signUp2Fragment = new SignUp2Fragment();
     Boolean save_complete;
+    SignUpTask.PresenterBridge presenterBridge;
+    SignUpPresenter signUpPresenter;
 
     /*TODO List
     * 1.인터페이스 작성 -> 목적: 이 해당 엑티비티가 어떤 일을 할건지 전부 정리. 메소드로서
@@ -39,6 +43,7 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        signUpPresenter = new SignUpPresenter(this);
         setContentView(R.layout.activity_sign_up);
         initView();
     }
@@ -92,6 +97,7 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
                 this.userData.setHeight(userData.getHeight());
                 this.userData.setActivity(userData.getActivity());
                 //TODO 데이터 통신 코드 작성.
+                presenterBridge.login(userData);
                 //fixme 이 메소드 어디어디 수정하기.
                 break;
         }
@@ -108,6 +114,7 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
                 }else{
                     button.setText("다음");
                     viewPager.setCurrentItem(0,true);
+
                 }
                 break;
             case R.id.button:
@@ -115,11 +122,10 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
                     button.setText("완료");
                     viewPager.setCurrentItem(1,true);
                     signUp1Fragment.sendUserData();
-                    signUp2Fragment.sendUserData();
-                    this.complete();
 
                 }else{
-                    Toast.makeText(this, "저장불가능, 다시 입력해주십시오.", Toast.LENGTH_SHORT).show();
+
+                    signUp2Fragment.sendUserData();
                 }
                 break;
         }
@@ -127,22 +133,19 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
 
 
     @Override
-    public Boolean complete() {
-
-        if(this.userData.getEmail()!=null&&this.userData.getEmail()!=null&&this.userData.getAge()!=0&&
-                (this.userData.getGender()==0||this.userData.getGender()==1)&&this.userData.getPwd()!=null&&this.userData.getActivity()!=0.0f
-                &&this.userData.getHeight()!=0.0f&&this.userData.getWeight()!=0.0f){
-            save_complete = true;
-        }else {
-            save_complete = false;
+    public void complete(boolean isSuccess) {
+        if(isSuccess){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, "회원가입에 실패했습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
         }
 
-        return save_complete;
     }
 
     @Override
     public void setPresenterBridge(SignUpTask.PresenterBridge presenterBridge) {
 
-
+        this.presenterBridge = presenterBridge;
     }
 }
