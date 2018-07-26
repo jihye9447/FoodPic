@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "151912984339",
+    "firebase_url": "https://foodpic-ab1df.firebaseio.com",
+    "project_id": "foodpic-ab1df",
+    "storage_bucket": "foodpic-ab1df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151912984339:android:12245a6d0f350f27",
+        "android_client_info": {
+          "package_name": "com.example.sinjihye.foodpic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151912984339-kme4ln21m4ev0q0evg347qt0u3c26h54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sinjihye.foodpic",
+            "certificate_hash": "e1c171f2335271a15ba883437dad45f22743f6a6"
+          }
+        },
+        {
+          "client_id": "151912984339-n1iav9khov0s662jc6n2p7jjio9prsga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTEaNlkzem8CJnm7x4-f21-nVdWJlA2C4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151912984339-n1iav9khov0s662jc6n2p7jjio9prsga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
