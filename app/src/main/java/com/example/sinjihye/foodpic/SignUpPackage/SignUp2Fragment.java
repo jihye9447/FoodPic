@@ -120,7 +120,7 @@ public class SignUp2Fragment extends android.support.v4.app.Fragment{
             userData.setWeight(u_weight);
             userData.setHeight(u_height);
             userData.setActivity(u_activation);
-            onUserDataListener.setUserData(1, userData);
+            onUserDataListener.setUserData(userData);
 
         }
 

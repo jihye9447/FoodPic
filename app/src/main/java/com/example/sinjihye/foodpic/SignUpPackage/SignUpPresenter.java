@@ -1,5 +1,6 @@
 package com.example.sinjihye.foodpic.SignUpPackage;
 
+import com.example.sinjihye.foodpic.PojoPackage.SignUpData;
 import com.example.sinjihye.foodpic.PojoPackage.UserData;
 
 public class SignUpPresenter implements SignUpTask.PresenterBridge, SignUpModel.OnCompleteListener{
@@ -13,8 +14,8 @@ public class SignUpPresenter implements SignUpTask.PresenterBridge, SignUpModel.
     }
 
     @Override
-    public void login(UserData userData) {
-        signUpModel.login(userData);
+    public void login(SignUpData signUpData) {
+        signUpModel.login(signUpData);
     }
 
 

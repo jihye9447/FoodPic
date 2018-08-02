@@ -1,29 +1,13 @@
 package com.example.sinjihye.foodpic.PojoPackage;
 
 public class UserData {
-    private String email;
-    private String pwd;
+
     private int age;
     private float weight;
     private float height;
     private int gender;
     private float activity;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
 
     public int getAge() {
         return age;

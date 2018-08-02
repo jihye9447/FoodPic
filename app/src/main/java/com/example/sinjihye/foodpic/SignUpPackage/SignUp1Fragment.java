@@ -15,8 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.sinjihye.foodpic.ListenerPackage.OnUserDataListener;
-import com.example.sinjihye.foodpic.PojoPackage.UserData;
+import com.example.sinjihye.foodpic.ListenerPackage.OnSignUpDataListener;
 import com.example.sinjihye.foodpic.R;
 
 public class SignUp1Fragment extends android.support.v4.app.Fragment {
@@ -25,7 +24,7 @@ public class SignUp1Fragment extends android.support.v4.app.Fragment {
     ImageView view_hide;
     TextView user_email, user_pw, check_pw;
     boolean isPwVisible = false;
-    OnUserDataListener onUserDataListener;
+    OnSignUpDataListener onSignUpDataListener;
 
 //    public static SignUp1Fragment getInstance(OnUserDataListener onUserDataListener){
 //        SignUp1Fragment signUp1Fragment = new SignUp1Fragment();
@@ -37,14 +36,12 @@ public class SignUp1Fragment extends android.support.v4.app.Fragment {
 //    }
 
 
-    public void setOnUserDataListener(OnUserDataListener onUserDataListener) {
-        this.onUserDataListener = onUserDataListener;
+    public void setOnSignUpDataListener(OnSignUpDataListener onSignUpDataListener) {
+        this.onSignUpDataListener = onSignUpDataListener;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        onUserDataListener = getArguments().getParcelable("listener");
         View view = inflater.inflate(R.layout.frag_sign_up1, container, false);
         initView(view);
         return view;
@@ -93,10 +90,7 @@ public class SignUp1Fragment extends android.support.v4.app.Fragment {
                 if(!pwd.equals(pwdCheck)){
                     Toast.makeText(getActivity(), "비밀번호 일치 여부를 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }else{
-                    UserData userData = new UserData();
-                    userData.setEmail(email);
-                    userData.setPwd(pwd);
-                    onUserDataListener.setUserData(0, userData);
+                    onSignUpDataListener.setSignUpData(email,pwd);
                 }
             }
         }
