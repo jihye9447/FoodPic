@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.sinjihye.foodpic.LoginPackage.LoginActivity;
 import com.example.sinjihye.foodpic.MainActivity;
 import com.example.sinjihye.foodpic.R;
 
@@ -24,7 +25,7 @@ public class SplashActivity extends AppCompatActivity implements SplashTask.View
         if(isSuccess){
             intent(MainActivity.class);
         }else{
-            //intent(LoginActivity.class);
+            intent(LoginActivity.class);
         }
     }
 
