@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -15,10 +14,78 @@
             android:orientation="vertical"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:textColor="@color/dark_gray"
+                        android:text="활동 대사량" />
+                    <TextView
+                        android:id="@+id/actiation_kcal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3000"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="60dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textColor="@color/white_gray"
+                        android:text="산출근거"/>
+                    <TextView
+                        android:id="@+id/message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white_gray"
+                        android:textSize="10dp"
+                        android:text="sample"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="30dp">
+                    <ImageView
+                        android:id="@+id/weight_graph"
+                        android:layout_marginTop="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"/>
+                    <TextView
+                        android:id="@+id/result_string"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:textColor="@color/dark_gray"
+                        android:gravity="center" />
+                    <TextView
+                        android:id="@+id/edit_weight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="몸무게 수정"
+                        android:textColor="#FD3A95"
+                        android:textSize="13dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/user_kcal"
             app:tabIndicatorColor="@color/darkgreen"
             app:tabTextColor="#ddd"
             app:tabSelectedTextColor="@color/darkgreen"
@@ -172,6 +239,7 @@
                 android:textColor="@color/dark_gray"
                 android:layout_marginTop="15dp"/>
             <TextView
+                android:id="@+id/waring_tips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -205,10 +273,12 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <ImageView
+                        android:id="@+id/first_pic"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
                     <TextView
+                        android:id="@+id/first_day"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.5"/>
@@ -226,10 +296,12 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <ImageView
+                            android:id="@+id/second_pic"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"/>
                         <TextView
+                            android:id="@+id/second_day"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="0.5"/>

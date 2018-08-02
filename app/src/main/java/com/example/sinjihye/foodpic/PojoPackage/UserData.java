@@ -8,7 +8,6 @@ public class UserData {
     private int gender;
     private float activity;
 
-
     public int getAge() {
         return age;
     }

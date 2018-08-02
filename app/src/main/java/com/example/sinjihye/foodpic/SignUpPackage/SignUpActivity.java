@@ -24,15 +24,14 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
     FragAdapter adapter1;
     TextView button;
     ImageView backbtn;
-    UserData userData = new UserData();
     SignUpData signUpData = new SignUpData();
+    UserData userData = new UserData();
     SignUp1Fragment signUp1Fragment = new SignUp1Fragment();
     SignUp2Fragment signUp2Fragment = new SignUp2Fragment();
-    Boolean save_complete;
     SignUpTask.PresenterBridge presenterBridge;
     SignUpPresenter signUpPresenter;
 
-    /*TODO List
+    /*
     * 1.인터페이스 작성 -> 목적: 이 해당 엑티비티가 어떤 일을 할건지 전부 정리. 메소드로서
     * ex) 회원가입 처리 / 데이터베이스에 회원 정보 기입
     * 2.SignUpPresenterClass를 만들어준다.
@@ -85,6 +84,8 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
     @Override
     public void onPageScrollStateChanged(int state) {
     }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -144,8 +145,8 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
         this.userData.setHeight(userData.getHeight());
         this.userData.setActivity(userData.getActivity());
         signUpData.setUserData(userData);
-        //TODO 데이터 통신 코드 작성.
+
         presenterBridge.login(signUpData);
-        //fixme 이 메소드 어디어디 수정하기.
+
     }
 }

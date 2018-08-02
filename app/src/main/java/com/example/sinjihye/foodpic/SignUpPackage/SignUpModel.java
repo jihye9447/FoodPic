@@ -11,12 +11,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+
+
 public class SignUpModel implements OnSuccessListener<AuthResult>, OnFailureListener {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private OnCompleteListener onCompleteListener;
     private SignUpData signUpData;
     private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private CollectionReference collectionReference = firestore.collection("User");
+    private CollectionReference collection = firestore.collection("User");
+
 
     public SignUpModel(SignUpModel.OnCompleteListener onCompleteListener) {
         this.onCompleteListener = onCompleteListener;
@@ -27,15 +31,20 @@ public class SignUpModel implements OnSuccessListener<AuthResult>, OnFailureList
         firebaseAuth.createUserWithEmailAndPassword(signUpData.getEmail(), signUpData.getPwd())
                 .addOnSuccessListener(this)
                 .addOnFailureListener(this);
-    }
+        firebaseAuth.createUserWithEmailAndPassword(signUpData.getEmail(), signUpData.getPwd())
+                .addOnSuccessListener(this)
+                .addOnFailureListener(this);
+ }
 
     private void uploadUserData(UserData userData) {
         String uid = firebaseAuth.getCurrentUser().getUid();
-        collectionReference.document(uid).set(userData)
+        collectionReference.document(uid).set(userData);
+        collection.document(uid).set(userData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         onCompleteListener.onComplete(true);
+                        //TODO 단말기 데이터베이스에 이메일과 페스워드 저장
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

@@ -26,6 +26,9 @@ public class SignUp1Fragment extends android.support.v4.app.Fragment {
     boolean isPwVisible = false;
     OnSignUpDataListener onSignUpDataListener;
 
+    public void setOnSignUpDataListener(OnSignUpDataListener onSignUpDataListener) {
+        this.onSignUpDataListener = onSignUpDataListener;
+    }
 //    public static SignUp1Fragment getInstance(OnUserDataListener onUserDataListener){
 //        SignUp1Fragment signUp1Fragment = new SignUp1Fragment();
 //
@@ -36,9 +39,6 @@ public class SignUp1Fragment extends android.support.v4.app.Fragment {
 //    }
 
 
-    public void setOnSignUpDataListener(OnSignUpDataListener onSignUpDataListener) {
-        this.onSignUpDataListener = onSignUpDataListener;
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -91,6 +91,7 @@ public class SignUp1Fragment extends android.support.v4.app.Fragment {
                     Toast.makeText(getActivity(), "비밀번호 일치 여부를 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }else{
                     onSignUpDataListener.setSignUpData(email,pwd);
+
                 }
             }
         }

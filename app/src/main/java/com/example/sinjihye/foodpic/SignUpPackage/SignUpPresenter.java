@@ -1,7 +1,7 @@
 package com.example.sinjihye.foodpic.SignUpPackage;
 
 import com.example.sinjihye.foodpic.PojoPackage.SignUpData;
-import com.example.sinjihye.foodpic.PojoPackage.UserData;
+
 
 public class SignUpPresenter implements SignUpTask.PresenterBridge, SignUpModel.OnCompleteListener{
 
