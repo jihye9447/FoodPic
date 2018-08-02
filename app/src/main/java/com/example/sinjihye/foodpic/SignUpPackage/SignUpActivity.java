@@ -10,26 +10,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sinjihye.foodpic.FragAdapter;
+import com.example.sinjihye.foodpic.ListenerPackage.OnSignUpDataListener;
 import com.example.sinjihye.foodpic.ListenerPackage.OnUserDataListener;
 import com.example.sinjihye.foodpic.MainActivity;
+import com.example.sinjihye.foodpic.PojoPackage.SignUpData;
 import com.example.sinjihye.foodpic.PojoPackage.UserData;
 import com.example.sinjihye.foodpic.R;
 
-public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, OnUserDataListener, View.OnClickListener, SignUpTask.ViewBridge{
+public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, OnUserDataListener, View.OnClickListener, SignUpTask.ViewBridge, OnSignUpDataListener {
 
     android.support.v7.widget.Toolbar toolbar;
     ViewPager viewPager;
     FragAdapter adapter1;
     TextView button;
     ImageView backbtn;
+    SignUpData signUpData = new SignUpData();
     UserData userData = new UserData();
     SignUp1Fragment signUp1Fragment = new SignUp1Fragment();
     SignUp2Fragment signUp2Fragment = new SignUp2Fragment();
-    Boolean save_complete;
     SignUpTask.PresenterBridge presenterBridge;
     SignUpPresenter signUpPresenter;
 
-    /*TODO List
+    /*
     * 1.인터페이스 작성 -> 목적: 이 해당 엑티비티가 어떤 일을 할건지 전부 정리. 메소드로서
     * ex) 회원가입 처리 / 데이터베이스에 회원 정보 기입
     * 2.SignUpPresenterClass를 만들어준다.
@@ -53,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
         viewPager = findViewById(R.id.view_pager);
         button = findViewById(R.id.button);
         adapter1 = new FragAdapter(getSupportFragmentManager());
-        signUp1Fragment.setOnUserDataListener(this);
+        signUp1Fragment.setOnSignUpDataListener(this);
         signUp2Fragment.setOnUserDataListener(this);
         adapter1.addFragment(signUp1Fragment);
         adapter1.addFragment(signUp2Fragment);
@@ -83,26 +85,6 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
     public void onPageScrollStateChanged(int state) {
     }
 
-    @Override
-    public void setUserData(int type, UserData userData) {
-        switch (type){
-            case 0:
-                this.userData.setEmail(userData.getEmail());
-                this.userData.setPwd(userData.getPwd());
-                break;
-            case 1:
-                this.userData.setAge(userData.getAge());
-                this.userData.setGender(userData.getGender());
-                this.userData.setWeight(userData.getWeight());
-                this.userData.setHeight(userData.getHeight());
-                this.userData.setActivity(userData.getActivity());
-                //TODO 데이터 통신 코드 작성.
-                presenterBridge.login(userData);
-                //fixme 이 메소드 어디어디 수정하기.
-                break;
-        }
-
-    }
 
     @Override
     public void onClick(View v) {
@@ -147,5 +129,24 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
     public void setPresenterBridge(SignUpTask.PresenterBridge presenterBridge) {
 
         this.presenterBridge = presenterBridge;
+    }
+
+    @Override
+    public void setSignUpData(String email, String pwd) {
+        signUpData.setEmail(email);
+        signUpData.setPwd(pwd);
+    }
+
+    @Override
+    public void setUserData(UserData userData) {
+        this.userData.setAge(userData.getAge());
+        this.userData.setGender(userData.getGender());
+        this.userData.setWeight(userData.getWeight());
+        this.userData.setHeight(userData.getHeight());
+        this.userData.setActivity(userData.getActivity());
+        signUpData.setUserData(userData);
+
+        presenterBridge.login(signUpData);
+
     }
 }
