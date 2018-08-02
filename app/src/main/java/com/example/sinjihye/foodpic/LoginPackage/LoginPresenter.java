@@ -1,12 +1,15 @@
 package com.example.sinjihye.foodpic.LoginPackage;
 
+import android.content.Context;
+
 public class LoginPresenter implements LoginTask.PresenterBridge, LoginModel.OnLoginListener {
 
     LoginTask.ViewBridge viewBridge;
-    LoginModel loginModel = new LoginModel(this);
+    LoginModel loginModel;
 
-    public LoginPresenter(LoginTask.ViewBridge viewBridge) {
+    public LoginPresenter(Context context,LoginTask.ViewBridge viewBridge) {
         this.viewBridge = viewBridge;
+        loginModel  = new LoginModel(context,this);
         viewBridge.setPresenterBridge(this);
     }
 
