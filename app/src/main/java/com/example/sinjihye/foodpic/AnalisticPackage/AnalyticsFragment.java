@@ -64,17 +64,17 @@ public class AnalyticsFragment extends Fragment implements AnalyticsTask.ViewBri
         first_day= view.findViewById(R.id.first_day);
         second_day= view.findViewById(R.id.second_day);
 
-        act_level = resultUserData.getActivation_level();
-        basic_kcal = resultUserData.getBasic_kcal();
-        act_kcal = resultUserData.getActivation_kcal();
-        proper_weight = resultUserData.getProper_weight();
-        resultOfweight = resultUserData.getResult();
-        warning_msg = resultUserData.getWarning_msg();
-
-        activation_kcal.setText(act_kcal);
-        conference_comment.setText("= 기초대사량("+basic_kcal+")x활동레벨("+act_level+")");
-        resultString.setText(resultOfweight);
-        warning_tips.setText(warning_msg);
+//        act_level = resultUserData.getActivation_level();
+//        basic_kcal = resultUserData.getBasic_kcal();
+//        act_kcal = resultUserData.getActivation_kcal();
+//        proper_weight = resultUserData.getProper_weight();
+//        resultOfweight = resultUserData.getResult();
+//        warning_msg = resultUserData.getWarning_msg();
+//
+//        activation_kcal.setText(act_kcal);
+//        conference_comment.setText("= 기초대사량("+basic_kcal+")x활동레벨("+act_level+")");
+//        resultString.setText(resultOfweight);
+//        warning_tips.setText(warning_msg);
 
 
     }

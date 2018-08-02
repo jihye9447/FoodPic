@@ -45,7 +45,7 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        signUpPresenter = new SignUpPresenter(this);
+        signUpPresenter = new SignUpPresenter(this,this);
         setContentView(R.layout.activity_sign_up);
         initView();
     }
@@ -100,13 +100,11 @@ public class SignUpActivity extends AppCompatActivity implements ViewPager.OnPag
                 }
                 break;
             case R.id.button:
-                if(viewPager.getCurrentItem()==1){
+                if(viewPager.getCurrentItem()==0){
                     button.setText("완료");
                     viewPager.setCurrentItem(1,true);
                     signUp1Fragment.sendUserData();
-
                 }else{
-
                     signUp2Fragment.sendUserData();
                 }
                 break;

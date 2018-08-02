@@ -1,9 +1,12 @@
 package com.example.sinjihye.foodpic.SignUpPackage;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.example.sinjihye.foodpic.PojoPackage.SignUpData;
 import com.example.sinjihye.foodpic.PojoPackage.UserData;
+import com.example.sinjihye.foodpic.Utils.SharedPreference;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -20,9 +23,11 @@ public class SignUpModel implements OnSuccessListener<AuthResult>, OnFailureList
     private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private CollectionReference collectionReference = firestore.collection("User");
     private CollectionReference collection = firestore.collection("User");
+    private Context context;
 
 
-    public SignUpModel(SignUpModel.OnCompleteListener onCompleteListener) {
+    public SignUpModel(Context context,SignUpModel.OnCompleteListener onCompleteListener) {
+        this.context = context;
         this.onCompleteListener = onCompleteListener;
     }
 
@@ -45,11 +50,15 @@ public class SignUpModel implements OnSuccessListener<AuthResult>, OnFailureList
                     public void onSuccess(Void aVoid) {
                         onCompleteListener.onComplete(true);
                         //TODO 단말기 데이터베이스에 이메일과 페스워드 저장
+                        SharedPreference sharedPreference = new SharedPreference();
+                        sharedPreference.put(context,"email",signUpData.getEmail());
+                        sharedPreference.put(context,"pwd",signUpData.getPwd());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Log.d("aaaaa",e.getMessage()+",,");
                         onCompleteListener.onComplete(false);
                     }
                 });
@@ -62,6 +71,7 @@ public class SignUpModel implements OnSuccessListener<AuthResult>, OnFailureList
 
     @Override
     public void onFailure(@NonNull Exception e) {
+        Log.d("aaaaaa2", "onFailure: "+e.getMessage());
         onCompleteListener.onComplete(false);
     }
 
