@@ -13,7 +13,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".SignUpPackage.SignUpActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".SplashPackage.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPackage.LoginActivity"></activity>
+        <activity android:name=".LoginPackage.LoginActivity" />
+        <activity android:name=".HabitPackage.HabitActivity"></activity>
     </application>
 
 </manifest>

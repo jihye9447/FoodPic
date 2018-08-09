@@ -36,9 +36,6 @@ public class SignUpModel implements OnSuccessListener<AuthResult>, OnFailureList
         firebaseAuth.createUserWithEmailAndPassword(signUpData.getEmail(), signUpData.getPwd())
                 .addOnSuccessListener(this)
                 .addOnFailureListener(this);
-        firebaseAuth.createUserWithEmailAndPassword(signUpData.getEmail(), signUpData.getPwd())
-                .addOnSuccessListener(this)
-                .addOnFailureListener(this);
  }
 
     private void uploadUserData(UserData userData) {

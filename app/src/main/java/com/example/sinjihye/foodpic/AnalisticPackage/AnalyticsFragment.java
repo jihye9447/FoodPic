@@ -88,7 +88,7 @@ public class AnalyticsFragment extends Fragment implements AnalyticsTask.ViewBri
 
     @Override
     public void userData_result(Boolean isSuccess) {
-
+        analyticsPresenter.onComplete(isSuccess);
     }
 }
 

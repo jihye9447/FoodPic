@@ -10,7 +10,6 @@ import com.google.firebase.auth.AuthResult;
 public class AnalyticsModel implements OnSuccessListener<AuthResult>, OnFailureListener {
 
     CalcResult calcResult;
-    int average_weight;
     private AnalyticsModel.onCompleteListener onCompleteListener;
 
     public AnalyticsModel(AnalyticsModel.onCompleteListener onCompleteListener1){
@@ -26,12 +25,12 @@ public class AnalyticsModel implements OnSuccessListener<AuthResult>, OnFailureL
 
     @Override
     public void onFailure(@NonNull Exception e) {
-
+        onCompleteListener.onComplete(false);
     }
 
     @Override
     public void onSuccess(AuthResult authResult) {
-
+        onCompleteListener.onComplete(true);
     }
 
     interface onCompleteListener{
