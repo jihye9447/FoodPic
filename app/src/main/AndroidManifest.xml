@@ -21,7 +21,8 @@
         <activity android:name=".SplashPackage.SplashActivity">
 
         </activity>
-        <activity android:name=".LoginPackage.LoginActivity"></activity>
+        <activity android:name=".LoginPackage.LoginActivity" />
+        <activity android:name=".HabitPackage.HabitActivity"/>
         <activity android:name=".RecordPackage.RecordActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +30,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.sinjihye.foodpic.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/path"/>
+        </provider>
     </application>
 
 </manifest>

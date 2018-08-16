@@ -136,7 +136,7 @@ public class RecordModel implements OnVisionCallback {
     }
 
     public void getNutrition(String foodName){
-        Call<JsonObject> call = RetrofitCall.getRetrofit(BASE_URL).getNutrition("application/json",ApiService.SERVICE_KEY,foodName);
+        Call<JsonObject> call = RetrofitCall.getRetrofit(BASE_URL).getNutrition(ApiService.SERVICE_KEY,foodName);
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
